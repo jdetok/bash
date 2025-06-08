@@ -1,1 +1,5 @@
- # pi5-scripts - template from https://www.virtualizationhowto.com/2022/05/create-a-linux-service-monitoring-script/
+Bash scripts 
+
+- git-common.sh automates git add, commit, & push
+TO CALL (alias set in ~/.vshrc) : 
+gi -m <commit message>
