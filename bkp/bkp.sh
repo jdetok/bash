@@ -1,11 +1,13 @@
 #!/bin/bash
+
 BKP_PATH=/mnt/store/bkp/linux/pi-jdeto
 BKP_DIR=${BKP_PATH}/bkp_$(date +"%m%d%Y_%H%M%S")
 MAXD=3
 
-
+# create the backup directory
 mkdir -p $BKP_DIR
 
+# copy specified dirs in the home dir
 function cphome() {
 	local dir=$1
 	echo "backing up ${HOME}/${dir}..."
@@ -30,6 +32,7 @@ function cpdotf() {
 		$HOME/ /$BKP_DIR/
 }
 
+# copy specifed /etc files
 function cpetc() {
 	local f=$1
 	mkdir -p $BKP_DIR/etc/$(dirname $f)
@@ -63,8 +66,8 @@ cphome go
 cphome dkr
 cphome scripts
 cphome priv
-
 echo -e "\nfinished with home dir backup"
+
 # backup etc files
 cpetc fstab
 cpetc passwd
